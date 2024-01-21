@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <title>Recipe Generator - Cooking with Flavors</title>
+    <style>
+    #navigationButtons {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+    gap: 10px; /* Space between buttons */
+}
+
+#prevButton, #nextButton {
+    padding: 10px 20px;
+    background-color: #4CAF50; /* Change as per your color theme */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#prevButton:hover, #nextButton:hover {
+    background-color: #388E3C; /* Change as per your color theme */
+}
+
+    .cta-button {
+        padding: 10px 20px;
+        background-color: #e63946; /* Change as per your color theme */
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    .cta-button:hover {
+        background-color: #388E3C; /* Change as per your color theme */
+    }
+    </style>
+    <script>
+    function getLocation() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(populateTextbox, showError);
+        } else {
+            alert("Geolocation is not supported by this browser.");
+        }
+    }
+
+    function populateTextbox(position) {
+        // If you need to use the position, you can access it as position.coords.latitude and position.coords.longitude
+        document.getElementById("ingredients").value = "2350 Health Sciences Mall, Vancouver, BC, V6T 1Z3";
+    }
+
+    function showError(error) {
+        switch(error.code) {
+            case error.PERMISSION_DENIED:
+                alert("User denied the request for Geolocation.");
+                break;
+            case error.POSITION_UNAVAILABLE:
+                alert("Location information is unavailable.");
+                break;
+            case error.TIMEOUT:
+                alert("The request to get user location timed out.");
+                break;
+            case error.UNKNOWN_ERROR:
+                alert("An unknown error occurred.");
+                break;
+        }
+    }
+    </script>
+</head>
+<body>
+<header class="site-header">
+    <nav class="navbar">
+        <a href="index.html"><div class="logo"><img src="logo.png" height="60px" width="60px" alt="MealMapper Logo">MealMapper</div></a>
+        <ul class="nav-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="#">angushf</a></li>
+        </ul>
+    </nav>
+</header>
+<main>
+    <section class="recipe-generator-section">
+        <h1>Grant Location Access</h1>
+        <p>Allow location access or enter your address to get<p>
+        <p>a recipe suggestion and cheapest prices in your neighborhood.</p>
+        <form class="recipe-generator-form" action="path-to-your-recipe-generation-script" method="POST">
+            <div class="form-group">
+                <label for="ingredients">Address:</label>
+                <input type="text" id="ingredients" name="ingredients" placeholder="1337 Corbin Place..." required>
+            </div>
+            <button type="button" class="cta-button" onclick="getLocation()">Share Location</button>
+        </form>
+    </section>
+</main>
+
+<div id="navigationButtons">
+    <a href="ingredient_list.html"><button id="prevButton">← Prev</button></a>
+    <a href="recipe_generator.html"><button id="nextButton">Next →</button></a>
+</div>
+
+
+
+<footer>
+    <!-- Include your footer here -->
+</footer>
+</body>
+</html>

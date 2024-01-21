@@ -6,29 +6,61 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <title>Cooking with Flavors</title>
+    <style>
+
+
+        .hero {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 100px; /* Adjust padding to create buffer */
+        }
+
+        .hero-content {
+            max-width: 70%; /* Adjust width as needed */
+            text-align: left;
+            margin-left: 30px;
+        }
+
+        .logo-container {
+            max-width: 40%; /* Adjust the width as needed */
+            text-align: right;
+        }
+
+        .logo-image {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* Add other styles for your site here */
+
+    </style>
 </head>
-<body>
-    <header class="site-header">
-        <nav class="navbar">
-            <a href="index.html"><div class="logo">MealMapper</div></a>
-            <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="contact.html">Contact</a></li>
-                <li><a href="login.html">Login</a></li>
-            </ul>
-        </nav>
-    </header>
-    <main>
-        <section class="hero">
-            <div class="hero-content">
-                <h1>Welcome to Meal Mapper</h1>
-                <p>Mapping Your Way to Affordable Meals.</p>
-                <a href="login.html" class="cta-button">Let's Cook!</a>
-            </div>
-        </section>
-        <!-- Additional sections as in the previous example -->
-    </main>
-    <!-- Footer as in the previous example -->
+<body style="background-image: linear-gradient(to bottom, #e63946, #be9191)">
+<header class="site-header">
+    <nav class="navbar">
+        <a href="index.html"><div class="logo"><img src="logo.png" height="60px" width="60px" alt="MealMapper Logo">MealMapper</div></a>
+        <ul class="nav-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="#">angushf</a></li>
+        </ul>
+    </nav>
+</header>
+<main>
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Welcome to MealMapper</h1>
+            <p>Mapping Your Way to Affordable Meals.</p>
+            <a href="login.html" class="cta-button">Let's Cook!</a>
+        </div>
+        <div class="logo-container">
+            <img src="logo.png" alt="Meal Mapper Logo" class="logo-image">
+        </div>
+    </section>
+    <!-- Additional sections as in the previous example -->
+</main>
+<!-- Footer as in the previous example -->
 </body>
 </html>
