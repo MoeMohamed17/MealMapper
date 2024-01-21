@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <title>Recipe Generator</title>
+    <style>
+  body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Distribute spacing */
+    height: 100vh; /* Full viewport height */
+  }
+   #recipeContainer {
+    text-align: center;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Align content to the top */
+    margin-top: -50px; /* Space from the messageBox */
+  }
+  /* New styles for the message box */
+    #messageBox {
+    text-align: center;
+    background-color: #fff0f0; /* Soft red background */
+    color: #5a2323; /* Dark red text color for contrast */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    border-radius: 8px; /* Rounded corners for a softer look */
+    padding: 20px;
+    margin: 90px 500px 90px 500px; /* Add horizontal margin for better spacing */
+    font-weight: bold;
+    font-size: 1.2em; /* Slightly larger text */
+    font-family: 'Montserrat', sans-serif; /* Use the Google font */
+    border-left: 5px solid #ff5e5e; /* Accent border on the left */
+    position: relative; /* Needed for pseudo-element positioning */
+    overflow: hidden; /* Ensures that children (pseudo-elements) are contained within the box */
+  }
+
+  #messageBox > * {
+    position: relative;
+    z-index: 1;
+  }
+  #toDoList {
+      width: 300px;
+      margin: 0 auto; /* Centering */
+      margin-top: 10px; /* Add space below the header */
+  }
+  #inputContainer {
+      display: flex;
+      justify-content: center; /* Centering horizontally */
+      padding: 20px;
+      margin-top: auto; /* Pushes the input container to the bottom */
+  }
+
+  input[type="text"] {
+    width: 300px;
+    padding: 10px;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    margin-right: 5px;
+  }
+  button {
+    padding: 10px 20px;
+    background-color: red;
+    color: white;
+    border: 2px solid red;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  button:hover {
+    background-color: darkred;
+  }
+  .toDoItem {
+    background-color: #f8f8f8;
+    border: 1px solid #ddd;
+    margin-bottom: 10px;
+    padding: 10px;
+    position: relative;
+  }
+  .removeBtn {
+    padding: 2px 5px;
+    background-color: red;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+  }
+  .removeBtn:hover {
+    background-color: darkred;
+  }
+.navbar a {
+  text-decoration: none;
+}
+
+#navigationButtons {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+    gap: 10px; /* Space between buttons */
+}
+
+#prevButton, #nextButton {
+    padding: 10px 20px;
+    background-color: #4CAF50; /* Change as per your color theme */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#prevButton:hover, #nextButton:hover {
+    background-color: #388E3C; /* Change as per your color theme */
+}
+
+
+
+
+
+</style>
+</head>
+<body>
+<header class="site-header">
+    <nav class="navbar">
+        <a href="index.html"><div class="logo">Cooking with Flavors</div></a>
+        <ul class="nav-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Recipes</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="login.html">angushf</a></li>
+        </ul>
+    </nav>
+</header>
+<!-- Message box just below the header -->
+<div id="messageBox">
+    Awesome! Next, enter ingredients that you would like to buy.
+</div>
+
+<div id="recipeContainer">
+    <!-- Recipe list will go here -->
+    <div id="toDoList"></div>
+</div>
+
+
+<!-- Input at the bottom -->
+<div id="inputContainer">
+    <input type="text" id="toDoInput" placeholder="Chicken, tomatoes, caesar salad...">
+    <button onclick="addToTop()">Enter Ingredient</button>
+</div>
+
+<div id="navigationButtons">
+    <a href="ingredient_list.html"><button id="prevButton">← Prev</button></a>
+    <a href="#"><button id="nextButton">Next →</button></a>
+</div>
+
+
+
+
+
+
+
+<script>
+  // This function adds the new task to the top of the list
+  function addToTop() {
+    var input = document.getElementById('toDoInput');
+    if (input.value.trim() === '') {
+      // Don't add empty strings
+      return;
+    }
+    var list = document.getElementById('toDoList');
+    var newTask = document.createElement('div');
+    var removeBtn = document.createElement('button');
+
+    // Configure the new task
+    newTask.textContent = input.value;
+    newTask.className = 'toDoItem';
+
+    // Configure the remove button
+    removeBtn.textContent = 'Remove';
+    removeBtn.className = 'removeBtn';
+    removeBtn.onclick = function() {
+      list.removeChild(newTask);
+    };
+
+    // Append remove button to the task
+    newTask.appendChild(removeBtn);
+
+    // Add the new task to the top of the list
+    list.insertBefore(newTask, list.firstChild);
+
+    // Clear the input for the next task
+    input.value = '';
+  }
+
+  // This function checks for the Enter key press and calls addToTop if Enter is pressed
+  function checkEnterKey(event) {
+    if(event.key === 'Enter') {
+      addToTop();
+    }
+  }
+
+  // Add the keypress event listener to the input field
+  document.getElementById('toDoInput').addEventListener('keypress', checkEnterKey);
+
+</script>
+</body>
+</html>
