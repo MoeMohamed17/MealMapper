@@ -42,6 +42,50 @@
     .cta-button:hover {
         background-color: #388E3C; /* Change as per your color theme */
     }
+
+    // slider style
+    .slider {
+-webkit-appearance: none;
+width: 100%;
+height: 15px;
+border-radius: 5px;
+background: #d3d3d3;
+outline: none;
+opacity: 0.7;
+-webkit-transition: .2s;
+transition: opacity .2s;
+}
+
+.slider:hover {
+opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+-webkit-appearance: none;
+appearance: none;
+width: 25px;
+height: 25px;
+border-radius: 50%;
+background: #4CAF50;
+cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+width: 25px;
+height: 25px;
+border-radius: 50%;
+background: #4CAF50;
+cursor: pointer;
+}
+
+.distance-slider-container {
+margin: 20px 0;
+}
+
+.distance-slider-label {
+display: block;
+margin-bottom: 10px;
+}
     </style>
     <script>
     function getLocation() {
@@ -98,7 +142,21 @@
                 <input type="text" id="ingredients" name="ingredients" placeholder="1337 Corbin Place..." required>
             </div>
             <button type="button" class="cta-button" onclick="getLocation()">Share Location</button>
+
+        <!-- Slider container with label and span to display the slider value -->
+        <div class="distance-slider-container">
+            <label for="distanceSlider" class="distance-slider-label">Select distance range (1 - 25km):</label>
+            <input type="range" id="distanceSlider" name="distance" min="1" max="25" value="1" class="slider" oninput="sliderValueDisplay(value)">
+            <span id="distanceValue">1 km</span>
+        </div>
         </form>
+
+        <script>
+// Function to display the slider value
+function sliderValueDisplay(value) {
+    document.getElementById("distanceValue").textContent = value + " km";
+}
+</script>
     </section>
 </main>
 

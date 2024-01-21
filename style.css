@@ -17,8 +17,11 @@ body {
     background-color: rgba(255, 255, 255, 0.95);
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
     z-index: 1000;
+    height: 80px;
 }
 
 .navbar {
@@ -38,6 +41,8 @@ body {
     font-size: 1.5em;
     font-weight: bold;
     color: #e63946;
+    height: auto;
+    width: 60px;
 }
 
 .navbar a {
@@ -58,6 +63,10 @@ body {
 
 .navbar ul.nav-links li a:hover {
     color: #e63946;
+}
+
+.main-content {
+    margin-top: 80px; /* Adjust this value based on the height of your header */
 }
 
 /* Hero Section */
