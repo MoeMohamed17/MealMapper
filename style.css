@@ -21,6 +21,10 @@ body {
     z-index: 1000;
 }
 
+.description{
+margin-top:50px;
+}
+
 .navbar {
     display: flex;
     justify-content: space-between;
