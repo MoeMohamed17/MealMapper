@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <title>Cooking with Flavors</title>
+    <title>Simple Marker</title>
+    <!-- The callback parameter is required, so we use console.debug as a noop -->
+    <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDiwzJldZngHiSL8CztuMyHK6JHCy808-c&callback=console.debug&libraries=maps,marker&v=beta">
+    </script>
+    <link rel="stylesheet" href="./style.css"/>
+</head>
+<body>
+<header class="site-header">
+    <nav class="navbar">
+        <div class="logo">MealMapper</div>
+        <ul class="nav-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="login.html">Login</a></li>
+
+        </ul>
+    </nav>
+
+</header>
+<main>
+<!--    <section class="hero">-->
+<!--        <div class="hero-content">-->
+<!--            <div id="map"></div>-->
+
+<!--        </div>-->
+<!--    </section>-->
+    <gmp-map style="height: 1000px" center="49.26495,-123.24682" zoom="14" map-id="e62a12afc88ab857">
+        <gmp-advanced-marker  position="49.26495,-123.24682" title="My location">
+        </gmp-advanced-marker>
+
+    </gmp-map>
+</main>
+<!-- Footer as in the previous example -->
+</body>
+</html>
